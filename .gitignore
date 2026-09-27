@@ -1,0 +1,55 @@
+node_modules/
+dist/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Concept 3: the agent's working folder (recreated by the server)
+sandbox/
+
+# Concept 17: the folders the agent edits and rewinds (recreated by the server)
+checkpoint-lab/
+
+# Concept 18: the folders the sandboxed Bash commands run in (recreated by the server)
+sandbox-lab/
+
+# Concept 19: the cwd of the session runs (its transcripts are in ~/.claude/projects/, not here)
+session-lab/
+
+# Concept 20: the cwd of the hook runs (recreated by the server)
+hooks-lab/
+
+# Concept 22: the fake home (user CLAUDE.md) and the auto-memory folder (recreated by the server)
+memory-lab/
+
+# Concept 23: the fake CLAUDE_CONFIG_DIR, the agent's cwd and the plugin copy that /reload edits (recreated by the server)
+plugins-lab/
+
+# Concept 24: the SDK harness's cwd, with the returns-policy file its built-in tools read (recreated by the server)
+harness-lab/
+
+# Concept 25: the fake CLAUDE_CONFIG_DIR where too-large tool results are saved (recreated by the server)
+compact-lab/
+
+# Concept 26: the live session's cwd (slow.mjs, notes.txt) and its fake CLAUDE_CONFIG_DIR (recreated by the server)
+control-lab/
+
+# Concept 27: the agent's cwd (slow.mjs), its fake CLAUDE_CONFIG_DIR and the background output files (recreated by the server)
+bg-lab/
+
+# Concept 28: the agent's cwd (a.txt, b.txt) and its fake CLAUDE_CONFIG_DIR with the transcripts it resumes (recreated by the server)
+errors-lab/
+
+# Concept 29: the agent's cwd with the generated images and PDF, and its fake CLAUDE_CONFIG_DIR (recreated by the server)
+files-lab/
+
+# Concept 30: one folder per run (prices.csv and the files the agent writes) and the fake CLAUDE_CONFIG_DIR with the task lists (recreated by the server)
+todo-lab/
+
+# Concept 31: one empty folder per run (the files the agent writes) and the fake CLAUDE_CONFIG_DIR (recreated by the server)
+ask-lab/
+
+# Concept 32: one copy of the tiny project per run (cart.js, README.md) and the fake CLAUDE_CONFIG_DIR with the plan files (recreated by the server)
+plan-lab/

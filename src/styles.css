@@ -1,0 +1,166 @@
+:root { --bg: #f7f7f5; --fg: #1f1f1f; --muted: #666; --card: #fff; --border: #ddd; --accent: #c96442; color-scheme: light dark; }
+@media (prefers-color-scheme: dark) { :root { --bg: #1b1b1a; --fg: #eee; --muted: #aaa; --card: #262624; --border: #3a3a38; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, sans-serif; }
+main { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
+h1 { margin: 0 0 12px; }
+nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+button { background: var(--card); color: var(--fg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; cursor: pointer; font: inherit; }
+button.active, section > button { background: var(--accent); color: #fff; border-color: var(--accent); }
+button:disabled { opacity: .6; cursor: wait; }
+.lead { color: var(--muted); }
+textarea, input, select { width: 100%; padding: 8px; font: inherit; background: var(--card); color: var(--fg); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 8px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 10px 0; }
+.answer { white-space: pre-wrap; border-left: 4px solid var(--accent); }
+.log details { border-bottom: 1px solid var(--border); padding: 4px 0; }
+.log pre { font-size: 12px; overflow-x: auto; background: var(--card); padding: 8px; border-radius: 6px; }
+.tag { font: 12px monospace; padding: 1px 6px; border-radius: 4px; background: #888; color: #fff; }
+.tag-system { background: #5b7fb8; } .tag-assistant { background: #c96442; } .tag-user { background: #6a9a58; } .tag-result { background: #8a5bb8; }
+.tag-stream_event { background: #b8995b; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 12px; }
+.form-grid label { display: block; font-size: 13px; }
+label.check { display: flex; align-items: center; gap: 8px; margin: 4px 0 10px; }
+label.check input { width: auto; margin: 0; }
+.card pre { font-size: 12px; margin: 6px 0 0; overflow-x: auto; }
+.card.warn { border-left: 4px solid #d9a13b; }
+.cursor { animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.subtype { margin-left: 8px; font: 12px monospace; color: var(--muted); }
+code { font-size: 90%; }
+.scenarios, .row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.hint { color: var(--muted); font-size: 13px; margin: 0 0 8px; }
+table.tools { border-collapse: collapse; margin: 4px 0 10px; font-size: 13px; }
+table.tools th, table.tools td { border-bottom: 1px solid var(--border); padding: 3px 12px 3px 0; text-align: left; }
+table.tools input { width: auto; margin: 0; }
+ul.files { margin: 4px 0 0; padding-left: 18px; }
+.tool-call { border-top: 1px solid var(--border); padding: 6px 0; font-size: 13px; }
+.tool-call.denied .snippet { color: #d9a13b; }
+.snippet { white-space: pre-wrap; font-family: monospace; font-size: 12px; }
+.tag-error { background: #d9a13b; }
+.card.permission { border: 2px solid var(--accent); }
+.card.permission textarea { font: 12px monospace; }
+.row label.check { margin: 0 8px 0 0; }
+details.card summary { cursor: pointer; }
+details.card h4 { margin: 10px 0 2px; }
+.tag-pre { background: #5b7fb8; } .tag-post { background: #6a9a58; }
+ul.files button { padding: 0 6px; font: 12px monospace; }
+.delegation { border-left: 3px solid var(--accent); padding-left: 10px; margin: 8px 0; }
+ol.steps { margin: 4px 0; padding-left: 22px; }
+table.compare { width: 100%; margin-top: 12px; }
+table.compare td { vertical-align: top; }
+.snippet.report { border-top: 1px dashed var(--border); padding-top: 4px; }
+hr { border: 0; border-top: 1px solid var(--border); margin: 28px 0 8px; }
+.thumb { max-height: 80px; max-width: 160px; border-radius: 6px; border: 1px solid var(--border); display: block; margin-top: 6px; }
+.meter { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin: 6px 0 2px; }
+.meter > div { height: 100%; background: var(--accent); }
+.delegation.warn { border-left-color: #d9a13b; }
+.tag-mcp-stdio { background: #5b7fb8; } .tag-mcp-http { background: #3f9a9a; } .tag-mcp-sdk { background: #8a5bb8; }
+.st-connected { background: #6a9a58; } .st-failed, .st-needs-auth { background: #c0504d; } .st-pending { background: #b8995b; } .st-disabled { background: #888; }
+.subtype.bad { color: #c0504d; }
+select.inline { width: auto; margin: 0 0 0 8px; padding: 2px 6px; font-size: 12px; }
+.compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 10px; }
+.card.config { font-size: 13px; }
+.card.config label { display: block; }
+.card.config label.check { display: flex; align-items: flex-start; margin: 2px 0 6px; }
+.card.config label.check input { margin-top: 3px; }
+.card.config select, .card.config input { padding: 4px 6px; margin-bottom: 4px; }
+button.link { border: 0; background: none; padding: 0; color: var(--muted); text-decoration: underline; font-size: 12px; }
+details.thinking { margin: 6px 0; font-size: 13px; color: var(--muted); }
+details.thinking summary { cursor: pointer; }
+.thinking-text { white-space: pre-wrap; font-style: italic; color: var(--muted); font-size: 13px; max-height: 220px; overflow-y: auto; border-left: 3px solid var(--border); padding-left: 8px; }
+.answer.thin { margin: 6px 0; padding-left: 8px; }
+.tag-effort { background: #c96442; }
+table.usage { margin: 4px 0 0; font-size: 12px; }
+.events-grid { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.ev { font: 11px monospace; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--border); color: var(--muted); }
+.ev.fired { background: #6a9a58; border-color: #6a9a58; color: #fff; }
+.tool-call.observer { opacity: .6; }
+pre.wrap { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* Concept 25: the context window as a bar, and its size after each turn */
+.ctx-bar { position: relative; display: flex; height: 14px; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 6px 0; }
+.ctx-bar > div { height: 100%; min-width: 1px; }
+.ctx-threshold { position: absolute; top: 0; bottom: 0; width: 2px; background: #d9534f; }
+.swatch { display: inline-block; width: 10px; height: 10px; margin-right: 6px; border: 1px solid var(--border); vertical-align: middle; }
+.ctx-history { position: relative; display: flex; align-items: flex-end; gap: 6px; height: 160px; margin: 20px 0 22px; border-bottom: 1px solid var(--border); }
+.ctx-line { position: absolute; left: 0; right: 0; border-top: 2px dashed #d9534f; }
+.ctx-col { position: relative; flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+.ctx-col > div { width: 100%; max-width: 48px; background: var(--accent); border-radius: 3px 3px 0 0; }
+.ctx-col > span { font: 11px monospace; color: var(--muted); }
+.ctx-col > small { position: absolute; bottom: -18px; font: 11px monospace; color: var(--muted); }
+.tool-call.boundary { border-left: 4px solid #5b7fb8; padding-left: 8px; }
+.compare-grid.ctx-grid { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+
+/* Concept 26: control calls in the event list, between the messages they cause */
+.tag-call { background: #d9822b; }
+.tool-call.call { border-left: 4px solid #d9822b; padding-left: 8px; }
+.tool-call.task { border-left: 4px solid #3f9a9a; padding-left: 8px; }
+.card.config > label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+/* Concept 27: the tasks panel, a task's status, and a turn started by a task */
+.bg-panel { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 16px; }
+.st-running { background: #3f9a9a; } .st-completed { background: #6a9a58; } .st-killed, .st-stopped { background: #c0504d; } .st-failed { background: #d9a13b; }
+.tool-call.level { border-left-style: dashed; }
+.tool-call.auto-turn { border-left: 4px solid #c0504d; padding-left: 8px; }
+.tag-sub { background: #8a5bb8; }
+
+/* Concept 28: the fault proxy's rows, Claude Code's own retries, and the host's verdict */
+.tag-proxy { background: #6b6b6b; } .tag-retry { background: #b8995b; } .tag-verdict { background: #3f7fbf; }
+.tool-call.retry { border-left: 4px solid #b8995b; padding-left: 8px; }
+.tool-call.proxy { border-left: 4px dashed #888; padding-left: 8px; }
+.tool-call.verdict { border-left: 4px solid #3f7fbf; padding-left: 8px; background: color-mix(in srgb, #3f7fbf 8%, transparent); }
+code.bad { color: #c0504d; }
+
+/* Concept 29: content blocks (what was sent, what the wire tap saw) and the lab's files */
+.tag-wire { background: #2f8f6f; }
+.tool-call.wire { border-left: 4px solid #2f8f6f; padding-left: 8px; }
+.blocks { margin: 4px 0 0; }
+.block { border-left: 3px solid var(--border); padding: 2px 0 2px 8px; margin: 3px 0; font-size: 12px; }
+.block > code { font-weight: 600; margin-right: 6px; }
+.block .snippet { display: inline; }
+.block.kind-image { border-left-color: #c96442; } .block.kind-document { border-left-color: #8a5bb8; } .block.kind-tool-result { border-left-color: #5b7fb8; }
+.block.observer { opacity: .55; }
+.files-row { margin-top: 8px; align-items: flex-end; }
+.file-chip { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; color: inherit; text-decoration: none; }
+.file-chip .subtype { margin-left: 0; }
+.doc-icon { display: flex; align-items: center; justify-content: center; width: 60px; height: 76px; border: 1px solid var(--border); border-radius: 6px; font: 12px monospace; text-transform: uppercase; color: var(--muted); }
+
+/* Concept 30: the todo board, todo tool calls and board changes in the event list */
+.tag-todo { background: #4f8a5b; }
+.tool-call.todo { border-left: 4px solid #4f8a5b; padding-left: 8px; }
+.tool-call.board-change { border-left: 4px dashed #4f8a5b; padding-left: 8px; }
+.todo-board { border-left: 4px solid #4f8a5b; }
+.todo-bar { height: 6px; border-radius: 3px; background: var(--border); margin: 6px 0; overflow: hidden; }
+.todo-bar > div { height: 100%; background: #4f8a5b; transition: width .3s; }
+.todo-list { list-style: none; margin: 0; padding: 0; }
+.todo-item { display: flex; align-items: baseline; gap: 8px; padding: 3px 0; font-size: 14px; }
+.todo-icon { width: 1.2em; text-align: center; color: var(--muted); }
+.todo-id { font: 12px monospace; color: var(--muted); }
+.todo-in_progress .todo-icon { color: #3f9a9a; } .todo-in_progress .todo-subject { font-weight: 600; }
+.todo-completed .todo-icon { color: #4f8a5b; } .todo-completed .todo-subject { text-decoration: line-through; color: var(--muted); }
+pre.tur { font-size: 11px; margin: 4px 0 0; color: var(--muted); }
+
+/* Concept 31: the question card (the host's dialog), option previews, and AskUserQuestion rows in the event list */
+.tag-ask { background: #b0568f; }
+.tool-call.ask { border-left: 4px solid #b0568f; padding-left: 8px; }
+.card.ask-card { border-color: #b0568f; }
+.ask-q { border-top: 1px solid var(--border); padding: 8px 0 4px; margin-top: 8px; }
+.ask-body { margin-top: 6px; }
+.ask-body.with-preview { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.card label.check.ask-option { align-items: flex-start; margin: 2px 0 6px; }
+.card label.check.ask-option input { margin-top: 4px; }
+.ask-notes { font-size: 12px; }
+.ask-preview { width: 100%; height: 180px; border: 1px solid var(--border); border-radius: 6px; background: #fff; margin-top: 4px; }
+.ask-preview-md { font-size: 12px; white-space: pre-wrap; border: 1px solid var(--border); border-radius: 6px; padding: 8px; margin: 4px 0 0; max-height: 220px; overflow: auto; }
+.snippet.bad { color: #c0504d; }
+
+/* Concept 32: the plan card (the host's approval dialog), the mode badges, and plan rows in the event list */
+.tag-plan { background: #2f7f8f; }
+.tool-call.plan { border-left: 4px solid #2f7f8f; padding-left: 8px; }
+.tool-call.mode-change { border-left: 4px dashed #2f7f8f; padding-left: 8px; }
+.tag.mode-plan { background: #2f7f8f; } .tag.mode-default { background: #6b6b6b; } .tag.mode-acceptEdits { background: #6a9a58; }
+.card.plan-card { border-color: #2f7f8f; }
+.plan-text { font-size: 12px; white-space: pre-wrap; border: 1px solid var(--border); border-radius: 6px; padding: 8px; margin: 6px 0 8px; max-height: 360px; overflow: auto; }
+.card textarea.plan-edit { font: 12px monospace; margin-top: 6px; }
+.plan-feedback { flex: 1 1 260px; width: auto; margin-bottom: 0; }
